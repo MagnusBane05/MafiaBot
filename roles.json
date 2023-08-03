@@ -1,0 +1,26 @@
+[
+    {
+      "name": "Town",
+      "night_action": "No night action.",
+      "night_description": "Default town. Vote out the mafia to win.",
+      "team": "Town"
+    },
+    {
+      "name": "Medic",
+      "night_action": "!save <player>",
+      "night_description": "Protect a player from the mafia at night. You cannot protect the same person two nights in a row.",
+      "team": "Town"
+    },
+    {
+      "name": "Cop",
+      "night_action": "!check <player>",
+      "night_description": "Compare a player to the player you chose the night before. \nFor example: Night 1 -> checked Evan, Night 2 -> checked Emma, Response: They are on opposite teams!\nIf the players are on the same team, they are either both town, both mafia, or both neutrals.",
+      "team": "Town"
+    },
+    {
+      "name": "Mafia",
+      "night_action": "!kill <player>",
+      "night_description": "Vote to kill a player. All members of the mafia must be in agreement.",
+      "team": "Mafia"
+    }
+  ]

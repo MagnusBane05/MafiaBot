@@ -1,0 +1,29 @@
+Game Logic:
+    Nighttime:
+        !kill:
+            all members of the mafia have to type !kill <player> for the same player
+            there should be a way for the mafia to see who everyone is voting for and see if someone hasn't voted
+        !save:
+            the medic can save one player
+            need to make sure they can't save the same player two nights in a row
+        !check:
+            the cop checks one player, then checks a different player the next nights
+            once they've checked someone, they can't check them again
+            once they've compared two people and the game switches to day, they should see whether or not they are on the same team
+            it would also be nice to be able to see the cop's history of checks
+        Once the moderator changes to day (!game day). The kills, saves and checks should be resolved and the players should be told who died.
+        The cop should be dm'd what the result of their check is
+        Their should be an option for the moderator to see what the nighttime actions were
+    Daytime:
+        !nominate:
+            need two nominations to vote someone up
+            would like to see who has nominated who
+            people should be able to switch their nominations freely until someone has recieved two
+        !vote:
+            once someone is nominated, it should prompt a vote
+            once everyone has voted (!vote yes/no) it will say whether or not that person was voted out
+            should be able to see who still needs to vote
+            their should be an option to send the moderator who voted which way
+    Ending the game:
+        Need to check if someone has won or not
+        If so, it should send the results, and optionally, reveal everyone's roles
