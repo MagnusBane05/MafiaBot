@@ -92,3 +92,11 @@ def startGame():
     is_night = True
 
     return active_players
+
+def pairwiseInvestigate(target):
+
+    checkedplayer = getActivePlayer(target)
+    rolename = checkedplayer.role
+    roleobject = getRole(rolename)
+
+    print(roleobject["team"])
