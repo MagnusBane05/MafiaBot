@@ -100,3 +100,18 @@ def getAllPlayerRoles():
     if len(active_players) == 0:
         return 'No active players.'
     return '\n'.join([f'{player.name} ({player.role})' for player in active_players])
+
+def killPlayer(target: str):
+    return ""
+
+def protectPlayer(target: str):
+    return ""
+
+def pairwiseInvestigate(target: str):
+    return ""
+
+def nominatePlayer(target: str):
+    return ""
+
+def votePlayer(target: str):
+    return ""

@@ -10,7 +10,7 @@ class Basic(commands.Cog):
     @commands.command(help='Joins the game.')
     async def join(self, ctx):
         response = responses.playerJoins(ctx.author.name)
-        await ctx.send(response)        
+        await ctx.send(response)
 
     @commands.command(help='Leaves the game.')
     async def leave(self, ctx):
