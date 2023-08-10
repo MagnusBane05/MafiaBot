@@ -102,6 +102,14 @@ def getAllPlayerRoles():
     return '\n'.join([f'{player.name} ({player.role})' for player in active_players])
 
 def killPlayer(target: str):
+    return 'No function yet'
+
+def pairwiseInvestigate(target: str):
+    game.pairwiseInvestigate(target)
+
+    return''
+
+def killPlayer(target: str):
     return ""
 
 def protectPlayer(target: str):
