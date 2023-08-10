@@ -104,7 +104,12 @@ def getAllPlayerRoles():
 def killPlayer(target: str):
     return 'No function yet'
 
-def pairwiseInvestigate(target: str):
-    game.pairwiseInvestigate(target)
+def pairwiseInvestigate(target: str,author: str):
+    return game.pairwiseInvestigate(target, author)
 
-    return''
+
+
+
+
+
+

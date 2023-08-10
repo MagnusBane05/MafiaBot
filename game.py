@@ -6,8 +6,10 @@ players = []
 active_roles = []
 roles = []
 active_players = []
+checked_players = []
 game_started = False
 is_night = True
+cop_checked = False
 
 @dataclass
 class Player():
@@ -79,6 +81,7 @@ def assignRoles():
     return active_players
 
 def getActivePlayer(name):
+
     return next((player for player in active_players if player.name.lower() == name.lower()), None)
 
 
@@ -88,15 +91,56 @@ def startGame():
     
     global game_started
     global is_night
+    global cop_checked
     game_started = True
     is_night = True
+    cop_checked = False
 
     return active_players
 
-def pairwiseInvestigate(target):
+def pairwiseInvestigate(target: str, authorname: str):
+    author = getActivePlayer(authorname)
+    authorrolename = author.role
+
+    if authorrolename != 'Cop':
+        return'You are not the cop'
+
+    global cop_checked
+    if cop_checked:
+        return'You have already checked someone'
 
     checkedplayer = getActivePlayer(target)
-    rolename = checkedplayer.role
+    rolename = checkedplayer.role #role name
     roleobject = getRole(rolename)
+    team = roleobject["team"] #team name
 
-    print(roleobject["team"])
+    if len(checked_players) == 0:
+
+        checked_players.append(checkedplayer)
+        cop_checked = True
+        return 'This the first check'
+
+    for player in checked_players:
+
+        if target == player.name:
+
+            return 'This player has already been checked'
+
+    previouscheck = checked_players[-1]
+    previousrolename = previouscheck.role
+    previousroleobject = getRole(previousrolename)
+    previousteam = previousroleobject["team"]
+
+
+    checked_players.append(checkedplayer)
+    cop_checked = True
+    return 'Players are on the same team' if team == previousteam else 'Players are not on the same team'
+
+
+
+
+
+
+
+
+
