@@ -39,7 +39,7 @@ class Basic(commands.Cog):
 
     @commands.command(help='Compare a player to the player you chose the night before. \nFor example: Night 1 -> checked Evan, Night 2 -> checked Emma, Response: They are on opposite teams!\nIf the players are on the same team, they are either both town, both mafia, or both neutrals.')
     async def check(self, ctx, target):
-        response = responses.pairwiseInvestigate(target)
+        response = responses.pairwiseInvestigate(target, ctx.author.name)
         await ctx.send(response)
 
     @commands.command(help='Nominate a player to be voted. Two nominations are required to go to vote.')

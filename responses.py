@@ -104,18 +104,10 @@ def getAllPlayerRoles():
 def killPlayer(target: str):
     return 'No function yet'
 
-def pairwiseInvestigate(target: str):
-    game.pairwiseInvestigate(target)
-
-    return''
-
-def killPlayer(target: str):
-    return ""
+def pairwiseInvestigate(target: str,author: str):
+    return game.pairwiseInvestigate(target, author)
 
 def protectPlayer(target: str):
-    return ""
-
-def pairwiseInvestigate(target: str):
     return ""
 
 def nominatePlayer(target: str):
@@ -123,3 +115,4 @@ def nominatePlayer(target: str):
 
 def votePlayer(target: str):
     return ""
+
