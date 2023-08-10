@@ -107,9 +107,12 @@ def killPlayer(target: str):
 def pairwiseInvestigate(target: str,author: str):
     return game.pairwiseInvestigate(target, author)
 
+def protectPlayer(target: str):
+    return ""
 
+def nominatePlayer(target: str):
+    return ""
 
-
-
-
+def votePlayer(target: str):
+    return ""
 

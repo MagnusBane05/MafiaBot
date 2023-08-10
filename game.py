@@ -23,6 +23,7 @@ async def loadRoles():
         roles = json.load(f)
     f.close()
 
+# Returns a Role object (defined in roles.json) if the role's name matches the parameter role_name
 def getRole(role_name: str):
     role = next((r for r in roles if r["name"].lower() == role_name.lower()), None)
     return role
