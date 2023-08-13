@@ -1,23 +1,15 @@
 import game
 
-### Player commands ###
+### Viewing or changing the players in the game ###
 
 def playerJoins(username) -> str:
-    if username not in game.players:
-        game.players.append(username)
-        return f'{username} joined the game.'
+    return f'{username} joined the game.' if game.addPlayer(username) else f'{username} is already in the game.'
     
-    return f'{username} is already in the game.'
-
 def playerLeaves(username):
-    if username in game.players:
-        game.players.remove(username)
-        return f'{username} has left the game.'
-    
-    return f'{username} is not in the game.'
+    return f'{username} has left the game.' if game.removePlayer(username) else f'{username} is not in the game.'
 
 def getPlayerList():
-    player_list = game.players
+    player_list = game.getPlayerList()
 
     if len(player_list) == 0:
         return "No players."
@@ -31,14 +23,13 @@ def getPlayerList():
     return 'Players: \n' + player_list_string
 
 def clearPlayerList():
-    game.players.clear()
-
+    game.clearPlayerList()
     return 'Player list has been cleared.'
 
-### Role commands ###
+### Changing or viewing the roles that are active in the game ###
 
 def getRoleList():
-    role_list = '## Available roles\n' + '\n '.join([role["name"] for role in game.roles])
+    role_list = '## Available roles\n' + '\n '.join([role["name"] for role in game.getAvailableRoleList()])
     return role_list
 
 def addRole(role: str):
@@ -65,7 +56,7 @@ def addDefaultRoles(num_players: int):
     return '## Default roles added\n' + '\n'.join([f'{role} ({role_count[role]})' for role in role_count.keys()])
 
 def getActiveRoles():
-    roles = game.active_roles
+    roles = game.getGameRoles()
     role_count = {role: roles.count(role) for role in roles}
     return '## Active roles\n' + '\n'.join([f'{role} ({role_count[role]})' for role in role_count.keys()])
 
@@ -86,7 +77,7 @@ def getPlayerRole(player):
     found_player = game.getActivePlayer(name)
     return f'{name} ({found_player.role})' if found_player is not None else f'{name} is not an active player or does not have a role assigned.'
 
-### Game commands ###
+### Commands for during the game ###
 
 def startGame():
     try:
@@ -96,7 +87,7 @@ def startGame():
     return active_players, '\n'.join([f'{player.name} ({player.role})' for player in active_players])
 
 def getAllPlayerRoles():
-    active_players = game.active_players
+    active_players = game.getGamePlayers()
     if len(active_players) == 0:
         return 'No active players.'
     return '\n'.join([f'{player.name} ({player.role})' for player in active_players])
